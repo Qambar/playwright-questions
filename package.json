@@ -1,17 +1,30 @@
 {
   "name": "playwright-questions",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {},
+  "description": "Real Playwright questions answered with reproducible code examples and video explanations.",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "report": "playwright show-report",
+    "install:browsers": "playwright install"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Qambar/playwright-questions.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
+  "keywords": [
+    "playwright",
+    "playwright-testing",
+    "test-automation",
+    "browser-automation",
+    "e2e-testing",
+    "qa",
+    "sdet",
+    "typescript"
+  ],
+  "author": "Qambar Raza",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Qambar/playwright-questions/issues"
   },
