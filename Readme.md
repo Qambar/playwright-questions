@@ -30,7 +30,7 @@ The short video below shows the exact process.
 
 | # | Question | Code Example | Video |
 |---|---|---|---|
-| 01 | Why does `page.goto()` sometimes appear faster with the default `load`? | [`tests/01-goto-timings.spec.ts`](tests/01-goto-timings.spec.ts) | YouTube |
+| 01 | Why does `page.goto()` sometimes appear faster with the default `load`? | [`tests/01-goto-timings.spec.ts`](tests/01-goto-timings.spec.ts) | [YouTube](https://www.youtube.com/watch?v=SDHkhQm1XEA) |
 
 More experiments will be added over time.
 
