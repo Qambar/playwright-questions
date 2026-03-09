@@ -16,6 +16,16 @@ This repository aims to become a **living knowledge base for Playwright automati
 
 ---
 
+# How to Ask a New Question
+
+If you have a Playwright behaviour you want investigated, submit it as a GitHub Issue.
+
+The short video below shows the exact process.
+
+[![How to submit a Playwright question](https://img.youtube.com/vi/MfquIS9ROy8/maxresdefault.jpg)](https://www.youtube.com/watch?v=MfquIS9ROy8)
+
+---
+
 # Questions Library
 
 | # | Question | Code Example | Video |
