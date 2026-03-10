@@ -22,7 +22,9 @@ If you have a Playwright behaviour you want investigated, submit it as a GitHub 
 
 The short video below shows the exact process.
 
-[![How to submit a Playwright question](https://img.youtube.com/vi/MfquIS9ROy8/maxresdefault.jpg)](https://www.youtube.com/watch?v=MfquIS9ROy8)
+<video src="docs/videos/how-to-ask-pw-question.mp4" controls width="800">
+  Your browser does not support the video tag.
+</video>
 
 ---
 
