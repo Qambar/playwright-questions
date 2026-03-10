@@ -22,9 +22,11 @@ If you have a Playwright behaviour you want investigated, submit it as a GitHub 
 
 The short video below shows the exact process.
 
-<video src="docs/videos/how-to-ask-pw-question.mp4" controls width="800">
-  Your browser does not support the video tag.
-</video>
+
+
+https://github.com/user-attachments/assets/67483550-8d6a-405e-aa1f-e76ea50f57b4
+
+
 
 ---
 
@@ -45,6 +47,10 @@ More experiments will be added over time.
 playwright-questions
 │
 ├── tests
+
+https://github.com/user-attachments/assets/3c72fb41-b8f8-4e95-9ac9-3bc46edd05c6
+
+
 │   ├── 01-goto-timings.spec.ts
 │   └── ...
 │
