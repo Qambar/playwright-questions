@@ -4,169 +4,171 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-Examples-3178C6?logo=typescript&logoColor=white)
 ![Automation](https://img.shields.io/badge/Automation-Engineering%20Experiments-blue)
 
-A curated collection of **real Playwright questions from engineers**, answered with:
+A curated collection of **real Playwright questions from engineers**, answered through:
 
 • reproducible code experiments  
 • short video walkthroughs  
-• practical engineering insights  
+• practical engineering explanations  
 
-Each example isolates a **specific Playwright behaviour** so engineers can understand **why something happens**, not just copy code that appears to work.
+Each example isolates a **specific Playwright behaviour** so engineers can understand **why it happens**, not just copy code that appears to work.
 
-This repository aims to become a **living knowledge base for Playwright automation engineers**.
+The goal is to build a **living knowledge base for Playwright automation engineers**.
 
 ---
 
-# How to Ask a New Question
+# Investigation Workflow
 
-If you have a Playwright behaviour you want investigated, submit it as a GitHub Issue.
+Each entry in this repository follows the same investigation process.
 
-The short video below shows the exact process.
+1. **A real question is asked** in [GitHub Issues](https://github.com/Qambar/playwright-questions/issues)  
+2. **The behaviour is reproduced** using a minimal Playwright test  
+3. **An experiment is created** to isolate the behaviour  
+4. **The findings are documented** with code and a short video explanation  
 
-
-
-https://github.com/user-attachments/assets/67483550-8d6a-405e-aa1f-e76ea50f57b4
-
-
+This approach turns individual questions into **reusable knowledge for the community**.
 
 ---
 
 # Questions Library
 
-| # | Question | Code Example | Video |
+| # | Behaviour | Code | Video |
 |---|---|---|---|
-| 01 | Why does `page.goto()` sometimes appear faster with the default `load`? | [`tests/01-goto-timings.spec.ts`](tests/01-goto-timings.spec.ts) | [YouTube](https://www.youtube.com/watch?v=SDHkhQm1XEA) |
+| 01 | Why does `page.goto()` sometimes appear faster with the default `load`? ([Issue #2](https://github.com/Qambar/playwright-questions/issues/2)) | [`tests/01-goto-timings.spec.ts`](tests/01-goto-timings.spec.ts) | [Watch](https://www.youtube.com/watch?v=SDHkhQm1XEA) |
+| 02 | Playwright browser not navigating to a URL (blocked by client detection)? ([Issue #3](https://github.com/Qambar/playwright-questions/issues/3)) | TBD | TBD |
 
 More experiments will be added over time.
 
 ---
 
-# Repository Structure
+# Playwright Geniuses
 
-```
+Community members helping investigate Playwright behaviours in this repository.
 
+| Name | Profile | Contact |
+|---|---|---|
+| Qambar Raza (Uncle Aaroh) | [LinkedIn](https://www.linkedin.com/in/qambar/) | [Work with Uncle Aaroh](https://docs.google.com/forms/d/e/1FAIpQLScDw7YwgUvbFWhsRUeH5FjJ0QJJJwkKUxb29WwhMBLLV9bOfg/viewform) |
+
+---
+
+## Apply to Become a Playwright Genius
+
+If you enjoy investigating Playwright behaviour and helping engineers understand how automation works, you are welcome to apply.
+
+Playwright Geniuses help by:
+
+• reviewing new issues submitted by testers and engineers  
+• suggesting or running experiments to reproduce behaviours  
+• contributing pull requests with minimal reproducible examples  
+• explaining findings so the community can learn from them  
+
+### Benefits
+
+Becoming a Playwright Genius can help you:
+
+• build a visible **open-source contribution record**  
+• strengthen your **automation engineering reputation**  
+• connect with other Playwright practitioners  
+• gain recognition for technical investigations  
+• increase professional visibility that may lead to **career opportunities**
+
+Apply here:
+
+https://forms.gle/yJMHzxjjdqpfrJ5H6
+
+---
+
+# Ask a Question
+
+Have a Playwright behaviour you want investigated?
+
+Open a GitHub Issue and describe what you observed.
+
+A short walkthrough of the process:
+
+https://github.com/user-attachments/assets/67483550-8d6a-405e-aa1f-e76ea50f57b4
+
+---
+
+# Repository Design
+
+This repository follows a simple principle:
+
+**every question becomes a reproducible experiment.**
+
+Design principles:
+
+• experiments are minimal and focused  
+• behaviour is isolated and explained  
+• examples remain easy to reproduce  
+
+Repository structure:
+
+```text
 playwright-questions
 │
 ├── tests
-
-https://github.com/user-attachments/assets/3c72fb41-b8f8-4e95-9ac9-3bc46edd05c6
-
-
 │   ├── 01-goto-timings.spec.ts
 │   └── ...
 │
 ├── playwright.config.ts
 ├── package.json
-├── package-lock.json
 └── README.md
-
-```
-
-Design principles:
-
-• every question is reproducible  
-• each experiment is isolated  
-• examples remain small and focused  
+````
 
 ---
 
 # Getting Started
 
-Install dependencies
+Install dependencies:
 
-```
-
+```bash
 npm install
-
 ```
 
-Install Playwright browsers
+Install Playwright browsers:
 
-```
-
+```bash
 npm run install:browsers
-
 ```
 
-Run the experiments
+Run the experiments:
 
-```
-
+```bash
 npm test
-
 ```
 
-Run with Playwright UI
+Run with Playwright UI:
 
-```
-
+```bash
 npm run test:ui
-
 ```
 
-Open the HTML report
+Open the HTML report:
 
-```
-
+```bash
 npm run report
-
 ```
 
 ---
 
 # Who This Repository Is For
 
-This repository is particularly useful for:
+This repository is useful for:
 
-• automation engineers learning Playwright  
-• SDETs debugging flaky tests  
-• engineering teams modernising automation frameworks  
-• technical leads defining testing standards  
-• architects evaluating automation strategies  
-
----
-
-# Learn Playwright Faster
-
-If you want to go deeper into Playwright architecture, performance, and scalable automation, explore these courses.
-
-### Advanced Playwright Techniques
-Optimising test speed, stability, and cloud execution.
-
-https://www.linkedin.com/learning/advanced-playwright-techniques-optimizing-speed-stability-and-cloud-testing/advanced-playwright-techniques
-
-### Playwright Design Patterns
-Engineering patterns for building scalable and maintainable Playwright frameworks.
-
-https://www.linkedin.com/learning/playwright-design-patterns/welcome
-
-### Learning Selenium
-A complete course on structuring, scaling, and optimising automated tests.
-
-https://www.linkedin.com/learning/learning-selenium-structure-scale-run-and-optimize-automated-tests/learn-selenium-for-testing
+• automation engineers learning Playwright
+• SDETs debugging flaky tests
+• engineering teams modernising automation frameworks
+• technical leads defining testing standards
+• architects evaluating automation strategies
 
 ---
 
-# Work With Uncle Aaroh
+# Learning Resources
 
-If your organisation wants help improving automation architecture, stability, or testing strategy:
+Courses and training that explore Playwright, automation architecture, and modern testing practices.
 
-Consulting / Coaching  
-https://docs.google.com/forms/d/e/1FAIpQLScDw7YwgUvbFWhsRUeH5FjJ0QJJJwkKUxb29WwhMBLLV9bOfg/viewform
-
----
-
-# More Content
-
-Playwright insights, automation discussions, and training resources:
-
-https://linktr.ee/uncleaaroh
-
----
-
-# Author
-
-Qambar Raza  
-Microsoft MVP — Developer Technologies    
-
-LinkedIn  
-https://www.linkedin.com/in/qambar/
+| Resource                                                                                                                                                                       | Description                                                               |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
+| [Advanced Playwright Techniques](https://www.linkedin.com/learning/advanced-playwright-techniques-optimizing-speed-stability-and-cloud-testing/advanced-playwright-techniques) | Optimising Playwright tests for speed, stability, and cloud execution.    |
+| [Playwright Design Patterns](https://www.linkedin.com/learning/playwright-design-patterns/welcome)                                                                             | Engineering patterns for scalable and maintainable Playwright frameworks. |
+| [Learning Selenium](https://www.linkedin.com/learning/learning-selenium-structure-scale-run-and-optimize-automated-tests/learn-selenium-for-testing)                           | Structuring and maintaining automated tests.                              |
