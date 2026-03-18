@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to SecureShop</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; }
+
+    .blocked-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: #1a1a2e;
+      color: #e94560;
+      z-index: 9999;
+      justify-content: center; align-items: center;
+      flex-direction: column; gap: 1rem;
+      font-size: 1.5rem;
+    }
+    .blocked-overlay.active { display: flex; }
+    .blocked-overlay .icon { font-size: 4rem; }
+    .blocked-overlay .sub { color: #888; font-size: 0.9rem; }
+
+    header { background: #0f3460; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    header h1 { font-size: 1.4rem; }
+    nav a { color: #e2e2e2; text-decoration: none; margin-left: 1.5rem; }
+
+    .hero { background: #16213e; color: white; text-align: center; padding: 4rem 2rem; }
+    .hero h2 { font-size: 2rem; margin-bottom: 0.5rem; }
+    .hero p { color: #aaa; }
+
+    .products { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1000px; margin: 0 auto; }
+    .product-card { background: white; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .product-card h3 { margin-bottom: 0.5rem; }
+    .product-card .price { color: #e94560; font-size: 1.2rem; font-weight: bold; margin: 0.5rem 0; }
+    .product-card button { background: #0f3460; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 4px; cursor: pointer; width: 100%; }
+    .product-card button:hover { background: #16213e; }
+
+    #detection-status { position: fixed; bottom: 1rem; right: 1rem; background: #2d2d2d; color: #0f0; padding: 0.5rem 1rem; border-radius: 4px; font-family: monospace; font-size: 0.75rem; }
+  </style>
+</head>
+<body>
+
+<div class="blocked-overlay" id="blocked-overlay">
+  <div class="icon">🤖</div>
+  <div>Access Denied</div>
+  <div class="sub">Automated browser detected. Please use a real browser.</div>
+  <div class="sub" id="detection-reason"></div>
+</div>
+
+<header>
+  <h1>🛒 SecureShop</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Products</a>
+    <a href="#">About</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h2>Welcome to SecureShop</h2>
+  <p>The best deals, only for real humans.</p>
+</div>
+
+<div class="products" id="products">
+  <div class="product-card">
+    <h3>Wireless Headphones</h3>
+    <p>Premium noise-cancelling over-ear headphones</p>
+    <div class="price">£79.99</div>
+    <button data-testid="add-to-cart">Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <h3>Smart Watch</h3>
+    <p>Fitness tracker with heart rate monitor</p>
+    <div class="price">£149.99</div>
+    <button data-testid="add-to-cart">Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <h3>Portable Speaker</h3>
+    <p>Waterproof bluetooth speaker, 20hr battery</p>
+    <div class="price">£39.99</div>
+    <button data-testid="add-to-cart">Add to Cart</button>
+  </div>
+</div>
+
+<div id="detection-status">Checking...</div>
+
+<script>
+  /**
+   * Client-side bot detection techniques commonly used by real websites.
+   *
+   * These checks inspect browser properties that differ between
+   * a normal browser and one controlled by automation tools.
+   *
+   * Real-world sites (Cloudflare, Akamai, PerimeterX) use far more
+   * sophisticated fingerprinting, but these demonstrate the core idea.
+   */
+  (function detectAutomation() {
+    const dominated = [];   // Hard blocks — any one of these blocks access
+    const warnings  = [];   // Soft signals — logged but don't block alone
+
+    // ── HARD BLOCK: navigator.webdriver ──────────────────
+    // Chromium sets this to `true` when launched via DevTools
+    // Protocol (how Playwright, Puppeteer, Selenium control Chrome).
+    // This is the #1 detection method used by real websites.
+    if (navigator.webdriver) {
+      dominated.push('navigator.webdriver is true');
+    }
+
+    // ── SOFT SIGNALS (fingerprinting extras) ─────────────
+    // Real detection services (Cloudflare, Akamai) combine
+    // many signals. These don't block alone but are logged
+    // to show what a sophisticated detector would check.
+
+    // Missing browser plugins (real Chrome has PDF viewer)
+    if (navigator.plugins.length === 0) {
+      warnings.push('no browser plugins');
+    }
+
+    // Missing languages
+    if (!navigator.languages || navigator.languages.length === 0) {
+      warnings.push('no languages configured');
+    }
+
+    // Chrome runtime missing (headless indicator)
+    if (!window.chrome || !window.chrome.runtime) {
+      warnings.push('chrome.runtime missing');
+    }
+
+    const statusEl = document.getElementById('detection-status');
+    const overlay = document.getElementById('blocked-overlay');
+    const reasonEl = document.getElementById('detection-reason');
+
+    if (dominated.length > 0) {
+      // Hard block — bot detected
+      overlay.classList.add('active');
+      reasonEl.textContent = 'Blocked: ' + dominated.join(', ');
+      if (warnings.length > 0) {
+        reasonEl.textContent += ' | Also flagged: ' + warnings.join(', ');
+      }
+      statusEl.textContent = '❌ Bot detected';
+      statusEl.style.color = '#f00';
+      document.getElementById('products').style.display = 'none';
+    } else if (warnings.length > 0) {
+      // Soft warnings only — access allowed but suspicious
+      statusEl.textContent = '⚠️ Human (with warnings: ' + warnings.join(', ') + ')';
+      statusEl.style.color = '#ff0';
+    } else {
+      // Clean — no signals at all
+      statusEl.textContent = '✅ Human verified';
+      statusEl.style.color = '#0f0';
+    }
+  })();
+</script>
+
+</body>
+</html>
