@@ -92,6 +92,7 @@ test.describe('bot detection bypass', () => {
 
   test('bypass with launch args and init script combined', async () => {
     const browser = await chromium.launch({
+      headless: !!process.env.CI,
       args: [
         // Disable the "Chrome is being controlled by automated
         // test software" infobar that some detection scripts

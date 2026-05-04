@@ -23,7 +23,7 @@ export default defineConfig({
   use: {
     browserName: 'chromium',
 
-    headless: false,
+    headless: !!process.env.CI,
 
     // Useful debugging artefacts without excessive noise
     trace: 'on-first-retry',

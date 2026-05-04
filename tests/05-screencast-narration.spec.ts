@@ -28,6 +28,7 @@
 import { test, expect } from '@playwright/test';
 
 test('Playwright narrates its own test run with Screencast API', async ({ page }) => {
+  test.skip(!!process.env.CI, 'Screencast API requires headed mode');
   await page.setViewportSize({ width: 1280, height: 720 });
 
   // ─── Start recording ───
