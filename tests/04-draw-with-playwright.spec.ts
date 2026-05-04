@@ -1,6 +1,6 @@
 import { test } from '@playwright/test';
 
-test.only('Draw Eid Mubarak on canvas', async ({ page }) => {
+test('Draw Eid Mubarak on canvas', async ({ page }) => {
   await page.setViewportSize({ width: 1400, height: 1000 });
   await page.goto('https://excalidraw.com');
   await page.waitForTimeout(1500);

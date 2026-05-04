@@ -36,6 +36,7 @@ This approach turns individual questions into **reusable knowledge for the commu
 | 01 | Why does `page.goto()` sometimes appear faster with the default `load`? ([Issue #2](https://github.com/Qambar/playwright-questions/issues/2)) | [`tests/01-goto-timings.spec.ts`](tests/01-goto-timings.spec.ts) | [Watch](https://www.youtube.com/watch?v=SDHkhQm1XEA) |
 | 02 | Playwright browser not navigating to a URL (blocked by client detection)? ([Issue #3](https://github.com/Qambar/playwright-questions/issues/3)) | [`tests/03-bot-detection-bypass.spec.ts`](tests/03-bot-detection-bypass.spec.ts) | [Watch](https://www.youtube.com/watch?v=Q0uJo0ApU3c) |
 | 03 | Used Playwright to write 'Eid Mubarak' (Happy Eid) on Excalidraw 🎨 ([Issue #4](https://github.com/Qambar/playwright-questions/issues/4)) | [`tests/04-draw-with-playwright.spec.ts`](tests/04-draw-with-playwright.spec.ts) | [Watch](https://www.youtube.com/watch?v=cDv1OwaBYkE) |
+| 07 | Flaky tests in CI: how to quarantine, monitor, and fix them properly | [`tests/07-flaky-test-quarantine.spec.ts`](tests/07-flaky-test-quarantine.spec.ts) · [`.github/workflows/ci.yml`](.github/workflows/ci.yml) | _coming soon_ |
 
 More experiments will be added over time.
 
