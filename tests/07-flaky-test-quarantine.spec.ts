@@ -16,7 +16,7 @@ test.describe('playwright.dev navigation', () => {
     await expect(page).toHaveTitle(/Playwright/);
   });
 
-  test('docs link is reachable right after navigation', { tags: ['quarantine'] }, async ({ page }) => {
+  test('docs link is reachable right after navigation', { tag: ['@quarantine'] }, async ({ page }) => {
     // Resolves the moment headers are received — DOM is not ready.
     // See tests/01-goto-timings.spec.ts:23 for the same primitive
     // used to study navigation timings.
