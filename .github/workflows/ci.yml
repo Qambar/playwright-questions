@@ -20,7 +20,7 @@ jobs:
 
       - run: npm ci
 
-      - run: npx playwright install  --grep-invert @quarantine --with-deps chromium
+      - run: npx playwright install  --grepInvert @quarantine --with-deps chromium
 
       - name: Run tests
         run: npx playwright test
